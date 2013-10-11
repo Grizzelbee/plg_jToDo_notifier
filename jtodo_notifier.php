@@ -2,10 +2,14 @@
 /**
  * @copyright	Copyright (C) 2005 - 2012 by Hanjo Hingsen, All rights reserved.
  * @license		GNU General Public License version 2 or later; see LICENSE.txt
- * @version     1.0.0
+ * @version     1.0.1
  * @history     
+        V1.0.1, 2012-11-28, Hanjo
+            [+] Überfällige ToDos werden alarmie
+
         V1.0.0, 2012-11-14, Hanjo
             [+] Erste Version
+            [+] Alarmiert neue und aktualisierte ToDos
  */
 defined( '_JEXEC' ) or die( 'Restricted access' );
 jimport('joomla.plugin.plugin');
@@ -55,5 +59,22 @@ class plgUserJTODO_Notifier extends JPlugin
             }
         }
 
+        $query = $db->getQuery(true);
+        $query->select('proj.name, todo.name AS todo, todo.targetdate');
+        $query->from('#__jtodo_todos        AS todo');
+        $query->join('', '#__jtodo_projects AS proj ON (todo.fk_project=proj.id)');
+        $query->where('todo.published = 1');
+        $query->where('proj.published = 1');
+        $query->where('todo.status    = 0');
+        $query->where('todo.targetdate <= CURRENT_DATE');
+        $query->order('proj.name');
+        $db->setQuery( $query ); 
+        $projects = $db->loadObjectList(); 
+        
+        foreach ($projects as $project)
+        {
+            // Feature three: Leave an Information, that a todo is overdue
+              JError::raiseNotice( 1000, JText::_( sprintf($this->params->get( 'MSG_OVERDUE', 'Error reading Param: MSG_OVERDUE' ), $project->todo, $project->name) ));
+        }
 	}
 }
