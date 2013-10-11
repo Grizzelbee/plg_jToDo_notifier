@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension version="2.5" type="plugin" group="user" method="upgrade">
+	<name>jToDo-Notifier</name>
+	<author>Hanjo Hingen</author>
+	<creationDate>23.11.2012</creationDate>
+	<copyright>(C) 2012 Hanjo Hingsen. All rights reserved.</copyright>
+	<license>GNU General Public License version 2 or later; see LICENSE.txt</license>
+	<authorEmail>webmaster@treu-zu-kaarst.de</authorEmail>
+	<authorUrl>www.treu-zu-kaarst.de</authorUrl>
+	<version>1.0.0</version>
+	<description>PLG_USER_JTODO_NOTIFIER_XML_DESCRIPTION</description>
+
+	<files>
+		<filename plugin="jtodo_notifier">jtodo_notifier.php</filename>
+		<filename>index.html</filename>
+	</files>
+    
+	<languages>
+		<language tag="de-DE">language/de-DE.plg_user_jtodo_notifier.sys.ini</language>
+		<language tag="en-GB">language/en-GB.plg_user_jtodo_notifier.sys.ini</language>
+	</languages>
+
+    <updateservers>
+        <server type="extension" priority="1" name="jTODO-Notifier Plugin Update Site">http://www.treu-zu-kaarst.de/scet_update/plg_jtodo_notifier_update.xml</server>
+    </updateservers>
+    
+    <config>
+        <fields name="params">
+            <fieldset name="basic">
+                <field name="MSG_NEW_DATA" type="textarea" default="" label="PLG_USER_JTODO_NOTIFIER_MSG_NEW_DATA" description="PLG_USER_JTODO_NOTIFIER_MSG_NEW_DATA_DESCRIPTION" />
+                <field name="MSG_UPDATED"  type="textarea" default="" label="PLG_USER_JTODO_NOTIFIER_MSG_UPDATED"  description="PLG_USER_JTODO_NOTIFIER_MSG_UPDATED_DESCRIPTION" />
+            </fieldset>
+        </fields>
+    </config>
+    
+</extension>

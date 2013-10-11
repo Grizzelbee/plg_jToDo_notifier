@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<updates>
+
+   <update>
+      <name>JTODO-Notifier</name>
+      <description>Notifier Plugin for the jToDo-Component</description>
+      <element>jtodo_notifier</element>
+      <type>plugin</type>
+      <folder>user</folder>
+      <version>1.0.0</version>
+ 
+      <infourl title="jTODO-Notifier-Plugin Home-URL">http://www.treu-zu-kaarst.de</infourl>
+      <downloads>
+         <downloadurl type="full" format="zip">http://www.treu-zu-kaarst.de/scet_update/plg_jtodo_notifier_v1.0.0.zip</downloadurl>
+      </downloads>
+      <tags>
+         <tag>stable</tag>
+      </tags>
+ 
+      <maintainer>Hanjo Hingsen</maintainer>
+      <maintainerurl>http://www.treu-zu-kaarst.de</maintainerurl>
+      <section></section>
+      <targetplatform name="joomla" version="2.5" />
+   </update>
+ 
+</updates>
